@@ -6,7 +6,7 @@ module.exports = {
       summary: ``,
     },
     description: `Buscador de precios de mercadolibre`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    siteUrl: `https://busca-libre.netlify.app/`,
   },
   plugins: [
     {
