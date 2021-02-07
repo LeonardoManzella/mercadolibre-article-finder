@@ -67,8 +67,23 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    {
+      // === PWA Manifest options ===
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `BuscaLibre`,
+        short_name: `BuscaLibre`,
+        start_url: `/`,
+        // TODO remember to change this stuff
+        icon: `src/images/icon.png`,
+        background_color: `#FFF`,
+        theme_color: `#FAE042`,
+        display: `standalone`,
+      },
+    },
+    // This (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // KEEP AT THE END OF THE FILE
+    `gatsby-plugin-offline`,
   ],
 }
