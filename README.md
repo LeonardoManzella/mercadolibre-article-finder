@@ -1,4 +1,4 @@
-s<p align="center">
+<p align="center">
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
   </a>
@@ -21,6 +21,7 @@ This project uses the following technologies:
 - [Netlify](https://www.netlify.com/)
 - [React content loader](https://www.npmjs.com/package/react-content-loader)
 
+Note: While Gatsby heavily recommends using GrahpQL APIs and this project is configured to do so, the MercadoLibre API don't support GraphQL, in other words is an 'unstructured data source'.
 
 ## How to run the project
 

@@ -67,6 +67,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-postcss`,
     {
       // === PWA Manifest options ===
       resolve: `gatsby-plugin-manifest`,
