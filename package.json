@@ -1,9 +1,8 @@
 {
   "name": "mercadolibre-article-finder",
-  "private": true,
-  "description": "Mercadolibre article price finder PWA using Gabtsy, Netlify, Tailwind & react content loader to create 'skeleton'-like animations  ",
+  "private": false,
+  "description": "Mercadolibre article price finder PWA using Gatsby, Netlify, Tailwind & react content loader to create 'skeleton'-like animations",
   "version": "1.0.0",
-  "author": "",
   "dependencies": {
     "gatsby": "^2.31.1",
     "gatsby-image": "^2.10.0",
@@ -31,8 +30,7 @@
   "devDependencies": {
     "prettier": "2.2.1"
   },
-  "license": "0BSD",
-  "main": "n/a",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
