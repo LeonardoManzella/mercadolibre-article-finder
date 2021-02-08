@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import ContentLoader, { Facebook } from 'react-content-loader'
+import ContentLoader from 'react-content-loader'
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -25,17 +25,33 @@ const BlogIndex = ({ data, location }) => {
   }
 
   /* TODO 
-  - Design site layout based on skeleton
   - Design layout to use tiny-slider and augmented-ui
+    - Menu, search bar and icon (Top of App, but thic)
   */
 
   const MyLoader = () => (
-    <ContentLoader viewBox="0 0 380 70">
-      {/* Only SVG shapes */}    
-      <rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
-      <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
-      <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
-    </ContentLoader>
+    <div style={{overflowX: "hidden"}}>
+      <ContentLoader 
+        speed={2}
+        width={"100%"}
+        viewBox="0 0 300 230"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb"
+      >
+        <rect x="11" y="14" rx="0" ry="0" width="212" height="11" /> 
+        <rect x="12" y="31" rx="0" ry="0" width="18" height="58" /> 
+        <rect x="39" y="51" rx="0" ry="0" width="103" height="17" /> 
+        <rect x="39" y="74" rx="0" ry="0" width="84" height="9" /> 
+        <rect x="39" y="35" rx="0" ry="0" width="84" height="9" /> 
+        <rect x="77" y="99" rx="0" ry="0" width="60" height="55" /> 
+        <rect x="138" y="3000" rx="0" ry="0" width="60" height="55" /> 
+        <rect x="11" y="100" rx="0" ry="0" width="60" height="55" /> 
+        <rect x="141" y="99" rx="0" ry="0" width="60" height="55" /> 
+        <rect x="77" y="158" rx="0" ry="0" width="60" height="55" /> 
+        <rect x="11" y="159" rx="0" ry="0" width="60" height="55" /> 
+        <rect x="141" y="158" rx="0" ry="0" width="60" height="55" />
+      </ContentLoader>
+    </div>
   )
 
   return (
