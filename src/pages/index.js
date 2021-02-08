@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import ContentLoader, { Facebook } from 'react-content-loader'
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -22,6 +23,20 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     )
   }
+
+  /* TODO 
+  - Design site layout based on skeleton
+  - Design layout to use tiny-slider and augmented-ui
+  */
+
+  const MyLoader = () => (
+    <ContentLoader viewBox="0 0 380 70">
+      {/* Only SVG shapes */}    
+      <rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
+      <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
+      <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
+    </ContentLoader>
+  )
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -59,6 +74,8 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </ol>
+      <button className="btn-purple">Message</button>
+      <MyLoader />
     </Layout>
   )
 }
