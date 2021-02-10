@@ -39,12 +39,12 @@ export const getArticleData = async (
     ];
 
     let articlesFound = [];
-    // TODO transforn to use promises en paralelo para mejorar tiempo de respuesta
-    for (let current = 0; current < searchURLs.length; current++) {
-        const url = searchURLs[current];
-        const results = await parseMLdata(url);
-        articlesFound.push(...results);
-    }
+    let requestsPromises = searchURLs.map( search => parseMLdata(search));
+    
+    articlesFound = await Promise.all(requestsPromises).then(
+        responses => responses.flat()
+    );
+
     articlesFound = articlesFound.filter( article => article.price);
     articlesFound = eliminateUnrelatedItems(articlesFound);
     articlesFound = articlesFound.sort(articleComparator);
@@ -69,18 +69,20 @@ export const getArticleData = async (
 
 const parseMLdata = async (url) => {
     const ONLY = 0;
-    try {
-        const rawData = await fetchTextData(PROXY_GENERAL + url);
-        let selectedText = rawData.match(/{"siteId".*}/,"gm")[ONLY];
-        selectedText = JSON.parse(selectedText);
-        return (selectedText.initialState && selectedText.initialState.results) || [];
-    } catch (error) {
-        console.error("=== Error al obtener datos de mercadolibre ===");
-        console.error("Url Pedida: ", url);
-        console.error(error);
-        console.trace();
-        return [];
-    }
+    return new Promise(async (resolve, _) => {
+        try {
+            const rawData = await fetchTextData(PROXY_GENERAL + url);
+            let selectedText = rawData.match(/{"siteId".*}/,"gm")[ONLY];
+            selectedText = JSON.parse(selectedText);
+            resolve((selectedText.initialState && selectedText.initialState.results) || []);
+        } catch (error) {
+            console.error("=== Error al obtener datos de mercadolibre ===");
+            console.error("Url Pedida: ", url);
+            console.error(error);
+            console.trace();
+            resolve([]);
+        }
+    });
 }
 
 const articleComparator = (firstArticle, secondArticle) => {
@@ -91,7 +93,7 @@ const articleComparator = (firstArticle, secondArticle) => {
 const eliminateUnrelatedItems = (articles) => {
     let articlesPrice = articles.map( article => article.price.amount || 0);
     const estimatedTotalAverage = calcAverage(articlesPrice);
-    return articles.filter( article => (article.price.amount > (estimatedTotalAverage/4)) && (article.price.amount < (estimatedTotalAverage*3)));
+    return articles.filter( article => (article.price.amount > (estimatedTotalAverage/3)) && (article.price.amount < (estimatedTotalAverage*3)));
 }
 
 const calcAverage = (articlesFound) => {
