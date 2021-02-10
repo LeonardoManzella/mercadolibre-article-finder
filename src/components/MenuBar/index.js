@@ -5,7 +5,7 @@ import { slide as Menu } from "react-burger-menu";
 import { useMediaQuery } from "react-responsive";
 import * as ROUTES from "../../constants/routes";
 
-const MenuBar = ({defaultTerm, executeSearch}) => {
+const MenuBar = ({defaultTerm, executeSearch, setArticle}) => {
   const [searchTerm, setSearchTerm] = useState(defaultTerm || "");
 
   const isDesktopOrTablet = useMediaQuery({
@@ -15,6 +15,7 @@ const MenuBar = ({defaultTerm, executeSearch}) => {
   return (
     <div className="burger-menu-styles">
       <Menu width={isDesktopOrTablet ? "20%" : "60%"}>
+        {/* TODO replace with divs and use onClick to setArticle from localStorage */}
         <a id="home" className="menu-item" href={ROUTES.HOME}>
           Home
         </a>
