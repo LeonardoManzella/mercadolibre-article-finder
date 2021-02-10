@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import ContentLoader from 'react-content-loader'
+import ArticleDetail from "../components/ArticleDetail";
 
 import MenuBar from "../components/MenuBar"
 import { getArticleData } from "../services/mercadoLibreService";
@@ -8,7 +9,11 @@ const App = ({ }) => {
   const [articleData, setArticleData] = useState(null);
 
   /* TODO 
-    - Focus on parse data from MercadoLibre
+    - After the MVP is working, focus on learning well gatsby and tailwind, then continue to design the interface
+
+
+    - Error check search or not found if less than 10 articles
+    - Pensar si mostrar las cosas mas vendidas/buscadas ahora en mercado libre en la home debajo de la barra de busqueda cuando inicia la APP (QUE aporta? visibilidad de aumento de precios? No me engañan pichanga?), seria una pantalla separada de las busquedas en si, autocontenida en si misma, que se muestra hasta la primera busqueda
   */
 
   const executeSearch = (term) => {
@@ -46,7 +51,7 @@ const App = ({ }) => {
     <>
     <MenuBar executeSearch={executeSearch} setArticle={setArticleData} />
       { articleData
-        ? <></>
+        ? <ArticleDetail articleData={articleData} />
         : <Loader />
       }
     </>
