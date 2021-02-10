@@ -13,7 +13,8 @@ export const getArticleData = async (
 ) => {
     setArticleData(null); //Sets loading screen
 
-    const searchTerm = termToFind.replace(/ /gm, '-');
+    let searchTerm = searchTerm.trim();
+    searchTerm = termToFind.replace(/ /gm, '-');
     const searchURLs = [
         MERCADOLIBRE_PAGE_1(searchTerm),
         MERCADOLIBRE_PAGE_2(searchTerm),
