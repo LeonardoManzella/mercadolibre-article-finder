@@ -11,3 +11,17 @@ import "prismjs/themes/prism.css"
 
 // Import tailwind styles
 import './src/global.css';
+
+// Import augmented-ui lib
+import './src/augmented-ui-1.1.2.css';
+
+export const onServiceWorkerUpdateReady = () => {
+    const answer = window.confirm(
+        `This application has been updated. ` +
+        `Reload to display the latest version?`
+    )
+
+    if (answer === true) {
+        window.location.reload()
+    }
+}

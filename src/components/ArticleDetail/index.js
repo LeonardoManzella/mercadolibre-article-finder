@@ -5,20 +5,27 @@ import React from "react";
 const ArticleDetail = ({articleData}) => {
 
   const makeArticleExample = (article) => 
-  <div>
-    <h6>{article.title}</h6>
-    <img src={article.pictures.stack.retina}></img>
-  </div> 
+  <a href={article.permalink} 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="article-detail-example-container" augmented-ui="br-clip bl-clip exe">
+    <div className="article-detail-example-title">{article.title}</div>
+    <img className="article-detail-example-img" src={article.pictures.stack.retina}></img>
+  </a> 
 
   return (
-    <div className="article-detail-container">
-      <h3>{articleData.searchTitle}</h3>
-      <div>{articleData.minAverage}</div>
-      <div>{articleData.totalAverage}</div>
-      <div>{articleData.maxAverage}</div>
-      {
-        articleData.selectedArticles.map( article => makeArticleExample(article))
-      }
+    <div className="article-detail-page">
+      <div className="article-detail-container">
+        <div className="article-detail-title">{articleData.searchTitle}</div>
+        <div className="article-detail-small-average">Minimo: $ {articleData.minAverage}</div>
+        <div className="article-detail-big-average">Promedio: $ {articleData.totalAverage}</div>
+        <div className="article-detail-small-average">Máximo: $ {articleData.maxAverage}</div>
+      </div>
+      <div className="article-detail-examples">
+        {
+          articleData.selectedArticles.map( article => makeArticleExample(article))
+        }
+      </div>
     </div>
   );
 };

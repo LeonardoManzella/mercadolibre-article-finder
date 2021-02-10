@@ -28,7 +28,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: white;
+  background: yellow;
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -92,25 +92,38 @@
   right: -0%;
 }
 
-.search-input {
-  @apply my-1 text-black text-center text-sm;
-  height: min-content;
-  align-self: center;
-  resize: none;
-}
+@layer components {
+  .search-input {
+    @apply my-1 text-black text-center text-base;
+    height: 3rem;
+    width: 16rem;
+    align-self: center;
+    resize: none;
 
-.search-button {
-  @apply my-1;
-}
+    padding-right: 2rem;
+    padding-left: 0.5rem;
+    margin-right: -1.7rem;
+    --aug-br: 3rem;
+  }
 
-.search-icon {
-  @apply text-white;
-  font-size: 3rem;
-  fill: currentColor;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  flex-shrink: 0;
-  user-select: none;
+  .search-button {
+    @apply my-1;
+    background-color: yellow;
+    padding-left: 2.5rem;
+    padding-right: 0.5rem;
+    margin-left: -1.5rem;
+    --aug-tl: 3rem;
+  }
+
+  .search-icon {
+    @apply text-black;
+    font-size: 3rem;
+    fill: black;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+  }
 }

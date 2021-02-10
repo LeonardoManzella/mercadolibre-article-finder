@@ -1,0 +1,41 @@
+
+@layer components {
+    .article-detail-page{
+        background-color: grey;
+    }
+    
+    .article-detail-container {
+        @apply px-4 mb-3 flex-col justify-center items-start;
+        display: flex;
+    }
+
+    .article-detail-title {
+        @apply py-1 text-xl font-bold;
+    }
+
+    .article-detail-big-average {
+        @apply py-1 text-xl;
+    }
+
+    .article-detail-examples{
+        @apply flex-row justify-evenly;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .article-detail-example-container {
+        @apply my-1 bg-white flex-col justify-evenly items-center;
+        display: flex;
+        width: 45vw;
+        max-width: 15rem;
+        --aug-border: 0.1rem;
+        --aug-border-bg: yellow;
+    }
+
+    .article-detail-example-title{
+        @apply px-1 text-xs;
+        background-color: yellow;
+        color: black;
+        text-align: center;
+    }
+}

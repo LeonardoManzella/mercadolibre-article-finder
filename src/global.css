@@ -1,7 +1,19 @@
+/**
+* This injects Tailwind's base styles and any base styles registered by
+* plugins.
+*/
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-.btn-purple {
-    @apply px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2;
-}
+/**
+* This injects Tailwind's component classes and any component classes
+* registered by plugins.
+*/
+@tailwind components;
+
+/**
+* This injects Tailwind's utility classes and any utility classes registered
+* by plugins.
+*/
+@tailwind utilities;
+ 
+

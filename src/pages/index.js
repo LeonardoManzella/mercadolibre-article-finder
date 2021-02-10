@@ -5,14 +5,15 @@ import ArticleDetail from "../components/ArticleDetail";
 import MenuBar from "../components/MenuBar"
 import { getArticleData } from "../services/mercadoLibreService";
 
-const App = ({ }) => {
+const App = () => {
   const [articleData, setArticleData] = useState(null);
 
   /* TODO 
-    - After the MVP is working, focus on learning well gatsby and tailwind, then continue to design the interface
-
-
+    - Focus on design structure
+    - Focus on design colors, start with a different base color than the rest of apps, maybe yellow?
     - Error check search or not found if less than 10 articles
+
+    - Add history feature
     - Pensar si mostrar las cosas mas vendidas/buscadas ahora en mercado libre en la home debajo de la barra de busqueda cuando inicia la APP (QUE aporta? visibilidad de aumento de precios? No me engañan pichanga?), seria una pantalla separada de las busquedas en si, autocontenida en si misma, que se muestra hasta la primera busqueda
   */
 
