@@ -98,6 +98,6 @@ const eliminateUnrelatedItems = (articles) => {
 
 const calcAverage = (articlesFound) => {
     const sumAll = (accumulator, currentValue) => accumulator + currentValue;
-    const calculatedValue = articlesFound.reduce(sumAll) / articlesFound.length;
+    const calculatedValue = articlesFound.reduce(sumAll, 0) / articlesFound.length;
     return parseInt(calculatedValue);
 }

@@ -24,7 +24,7 @@
     }
     
     .article-detail-example-container {
-        @apply my-1 bg-white flex-col justify-evenly items-center;
+        @apply my-1 bg-white flex-col justify-start items-center;
         display: flex;
         width: 45vw;
         max-width: 15rem;

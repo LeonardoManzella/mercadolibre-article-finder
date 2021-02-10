@@ -35,7 +35,21 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "husky": "^5.0.9",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "bash local-ci.sh",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "license": "MIT",
   "scripts": {
@@ -43,6 +57,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
+    "dev": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

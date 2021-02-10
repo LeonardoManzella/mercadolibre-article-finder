@@ -9,7 +9,8 @@ const App = () => {
   const [articleData, setArticleData] = useState(null);
 
   /* TODO 
-    - Focus on design structure
+    - Con algunas busquedas como "Memoria RAM 8GB" trae cualquier cosa, eso es un problema.. se puede solucionar? Quizas con mas paginas? O con menos?
+    - Focus on design structure to make it functional
     - Focus on design colors, start with a different base color than the rest of apps, maybe yellow?
     - Error check search or not found if less than 10 articles
 

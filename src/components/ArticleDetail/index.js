@@ -5,12 +5,12 @@ import React from "react";
 const ArticleDetail = ({articleData}) => {
 
   const makeArticleExample = (article) => 
-  <a href={article.permalink} 
+  <a key={article.permalink} href={article.permalink} 
   target="_blank"
   rel="noopener noreferrer"
   className="article-detail-example-container" augmented-ui="br-clip bl-clip exe">
     <div className="article-detail-example-title">{article.title}</div>
-    <img className="article-detail-example-img" src={article.pictures.stack.retina}></img>
+    <img className="article-detail-example-img" alt="" src={article.pictures.stack.retina}></img>
   </a> 
 
   return (
