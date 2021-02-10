@@ -41,7 +41,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "bash local-ci.sh",
       "pre-commit": "lint-staged"
     }
   },
