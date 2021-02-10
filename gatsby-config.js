@@ -6,7 +6,7 @@ module.exports = {
       summary: ``,
     },
     description: `Buscador de precios de mercadolibre`,
-    siteUrl: `https://busca-libre.netlify.app/`,
+    siteUrl: `https://busca-precios.netlify.app/`,
   },
   plugins: [
     {
@@ -72,8 +72,8 @@ module.exports = {
       // === PWA Manifest options ===
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `BuscaLibre`,
-        short_name: `BuscaLibre`,
+        name: `Busca Precios`,
+        short_name: `Busca Precios`,
         start_url: `/`,
         // TODO remember to change this stuff
         icon: `src/images/icon.png`,

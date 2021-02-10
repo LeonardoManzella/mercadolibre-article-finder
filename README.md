@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  BuscaLibre
+  BuscaPrecios
 </h1>
 
 This project is a MercadoLibre article price finder using it's public API.
