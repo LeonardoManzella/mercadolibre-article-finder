@@ -54,18 +54,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-feed`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     {
@@ -75,7 +63,6 @@ module.exports = {
         name: `Busca Precios`,
         short_name: `Busca Precios`,
         start_url: `/`,
-        // TODO remember to change this stuff
         icon: `src/images/icon.png`,
         background_color: `#ecebeb`,
         theme_color: `#ecebeb`,
