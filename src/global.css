@@ -1,0 +1,47 @@
+/**
+* This injects Tailwind's base styles and any base styles registered by
+* plugins.
+*/
+@tailwind base;
+
+/**
+* This injects Tailwind's component classes and any component classes
+* registered by plugins.
+*/
+@tailwind components;
+
+/**
+* This injects Tailwind's utility classes and any utility classes registered
+* by plugins.
+*/
+@tailwind utilities;
+
+/* Make it feels like a Native App */
+body * {
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    tap-highlight-color: transparent;
+    touch-callout: none;
+  }
+/* This fix iPhone and sometimes Chrome problems writing in Inputs */
+/* If this fix dasdadoesn't work, see https://stackoverflow.com/questions/32851413/input-field-ios-safari-bug-cant-type-in-any-text */
+input, input:before, input:after, textarea {
+  -webkit-user-select: initial !important;
+  -khtml-user-select: initial !important;
+  -moz-user-select: initial !important;
+  -ms-user-select: initial !important;
+  user-select: initial !important;
+  -webkit-touch-callout: initial;
+  touch-callout: initial;
+  -webkit-tap-highlight-color: initial;
+  tap-highlight-color: initial;
+}
+
+body *:focus {
+    outline: none;
+}
+
+/* Import augmented-ui lib with URL because it brokes the build otherwise */
+@import 'https://unpkg.com/augmented-ui@1.1.2/augmented.css';

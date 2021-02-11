@@ -1,0 +1,10 @@
+@layer components {
+  .error-message {
+    @apply mx-4 mt-4 px-4 font-bold text-center shadow-md;
+    background-color: #ecebeb;
+    --aug-tl: 0.5rem;
+    --aug-br: 0.5rem;
+    --aug-border: 0.05rem !important;
+    --aug-border-bg: black !important;
+  }
+}

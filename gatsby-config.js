@@ -6,7 +6,7 @@ module.exports = {
       summary: ``,
     },
     description: `Buscador de precios de mercadolibre`,
-    siteUrl: `https://busca-libre.netlify.app/`,
+    siteUrl: `https://busca-precios.netlify.app/`,
   },
   plugins: [
     {
@@ -54,21 +54,24 @@ module.exports = {
       },
     },
     `gatsby-plugin-feed`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-postcss`,
     {
+      // === PWA Manifest options ===
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Busca Precios`,
+        short_name: `Busca Precios`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `src/images/icon.png`,
+        background_color: `#ecebeb`,
+        theme_color: `#ecebeb`,
+        display: `standalone`,
       },
     },
-    `gatsby-plugin-react-helmet`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // This (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // KEEP AT THE END OF THE FILE
+    `gatsby-plugin-offline`,
   ],
 }
