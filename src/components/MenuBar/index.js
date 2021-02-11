@@ -1,11 +1,12 @@
 import "./styles.css";
 
 import React, { useState } from "react";
+import { Link } from "gatsby"
 import { slide as Menu } from "react-burger-menu";
 import { useMediaQuery } from "react-responsive";
 import * as ROUTES from "../../constants/routes";
 
-const MenuBar = ({defaultTerm, executeSearch, setArticle}) => {
+const MenuBar = ({defaultTerm, executeSearch}) => {
   const [searchTerm, setSearchTerm] = useState(defaultTerm || "");
 
   const isDesktopOrTablet = useMediaQuery({
@@ -15,10 +16,10 @@ const MenuBar = ({defaultTerm, executeSearch, setArticle}) => {
   return (
     <div className="burger-menu-styles">
       <Menu width={isDesktopOrTablet ? "20%" : "60%"}>
-        {/* TODO replace with divs and use onClick to setArticle from localStorage */}
-        <a id="home" className="menu-item" href={ROUTES.HOME}>
+        {/* TODO add content and use onClick to executeSearch from searchTerm */}
+        <Link className="menu-item" to={ROUTES.HOME} onClick={() => alert("")}>
           Home
-        </a>
+        </Link>
       </Menu>
       <textarea augmented-ui="br-clip exe" onChange={event => setSearchTerm(event.target.value)} className="search-input" rows="2" placeholder="Buscar" wrap="soft" />
       <button augmented-ui="tl-clip exe" className="search-button" onClick={() => executeSearch(searchTerm)}>

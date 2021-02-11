@@ -62,7 +62,7 @@ const App = () => {
 
   return (
     <>
-    <MenuBar executeSearch={executeSearch} setArticle={setArticleData} />
+    <MenuBar executeSearch={executeSearch} />
       { errorMessage
         ? <ErrorMessage message={errorMessage} />
         : articleData
