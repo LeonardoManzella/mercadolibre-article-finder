@@ -6,20 +6,36 @@ import { slide as Menu } from "react-burger-menu";
 import { useMediaQuery } from "react-responsive";
 import * as ROUTES from "../../constants/routes";
 
-const MenuBar = ({defaultTerm, executeSearch}) => {
+const MenuBar = ({defaultTerm, executeSearch, lastSearchs}) => {
   const [searchTerm, setSearchTerm] = useState(defaultTerm || "");
+  // console.log(lastSearchs)
 
   const isDesktopOrTablet = useMediaQuery({
     query: "(min-device-width: 1100px)"
   });
 
+  const makeSearchItem = (searchItem) => 
+    <Link augmented-ui="bl-clip br-clip exe" className="history-cointainer" to={ROUTES.HOME} onClick={() => executeSearch(searchItem.searchTerm)} key={searchItem.searchTerm}>
+      <div className="history-item-title">{searchItem.searchTitle}</div>
+      <div className="history-item-price">$ {searchItem.totalAverage}</div>
+    </Link>
+
+  const reverseMakeSearchItem = (searchs) => {
+    let toReturn = [];
+    for (let current = searchs.length -1; current >= 0; current--) {
+      const itemData = searchs[current];
+      toReturn.push(makeSearchItem(itemData));
+    }
+    return toReturn;
+  }
+
   return (
     <div className="burger-menu-styles">
       <Menu width={isDesktopOrTablet ? "20%" : "60%"}>
-        {/* TODO add content and use onClick to executeSearch from searchTerm */}
-        <Link className="menu-item" to={ROUTES.HOME} onClick={() => alert("")}>
-          Home
-        </Link>
+        {
+          reverseMakeSearchItem(lastSearchs)
+        }
+        
       </Menu>
       <textarea augmented-ui="br-clip exe" onChange={event => setSearchTerm(event.target.value)} className="search-input" rows="2" placeholder="Buscar" wrap="soft" />
       <button augmented-ui="tl-clip exe" className="search-button" onClick={() => executeSearch(searchTerm)}>

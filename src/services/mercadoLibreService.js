@@ -23,8 +23,8 @@ export const getArticleData = async (
     let searchTerm = termToFind.trim();
     searchTerm = termToFind.replace(/ /gm, '-');
 
-    const [gethistory, setHistory, _] = getLocalStorageUtils(HISTORY, []);
-    const history = gethistory();
+    const [getHistory, setHistory, ] = getLocalStorageUtils(HISTORY, []);
+    const history = getHistory();
     const articleInCache = history.find( article => article.searchTerm === searchTerm);
     if(articleInCache) {
         setArticleData(articleInCache);

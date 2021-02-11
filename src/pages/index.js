@@ -4,10 +4,14 @@ import ArticleDetail from "../components/ArticleDetail";
 import ErrorMessage from "../components/ErrorMessage";
 
 import MenuBar from "../components/MenuBar"
+import { HISTORY } from "../constants/storage";
 import { getArticleData } from "../services/mercadoLibreService";
+import { getLocalStorageUtils } from "../utils/localStorageUtils";
 
 const App = () => {
   const [articleData, setArticleData] = useState(null);
+  const [getHistory, , ] = getLocalStorageUtils(HISTORY, []);
+  const [history, setHistory] = useState(getHistory());
   const [errorMessage, setErrorMessage] = useState(null);
 
   /** COLOR PALETTE
@@ -20,16 +24,23 @@ const App = () => {
   * Special details or smaller highlight radioative green: #96F70A
   */
 
-  /* TODO 
-    - Historial de busquedas
-
+  /*  
+    BONUS possible features:
     - Share button in price section
-    - Add history feature
     - Pensar si mostrar las cosas mas vendidas/buscadas ahora en mercado libre en la home debajo de la barra de busqueda cuando inicia la APP (QUE aporta? visibilidad de aumento de precios? No me engañan pichanga?), seria una pantalla separada de las busquedas en si, autocontenida en si misma, que se muestra hasta la primera busqueda
   */
 
+  const updateHistory = () => {
+    setHistory( getHistory() );
+  }
+
+  const updateArticleData = (data) => {
+    setArticleData(data);
+    updateHistory();
+  }
+
   const executeSearch = (term) => {
-    getArticleData(term, setArticleData, setErrorMessage);
+    getArticleData(term, updateArticleData, setErrorMessage);
   }
 
   const Loader = () => (
@@ -61,7 +72,7 @@ const App = () => {
 
   return (
     <>
-    <MenuBar executeSearch={executeSearch} />
+    <MenuBar executeSearch={executeSearch} lastSearchs={history} />
       { errorMessage
         ? <ErrorMessage message={errorMessage} />
         : articleData

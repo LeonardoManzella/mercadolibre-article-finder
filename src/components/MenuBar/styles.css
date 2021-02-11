@@ -74,6 +74,7 @@
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
+  width: 100%;
 }
 
 /* Individual item */
@@ -126,5 +127,26 @@
     transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     flex-shrink: 0;
     user-select: none;
+  }
+
+  .history-cointainer {
+    @apply flex-col justify-evenly items-center text-base;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    --aug-border: 0.05rem;
+    --aug-border-bg: #D6B009;
+    --aug-bl: 0.5rem;
+    --aug-br: 0.5rem;
+  }
+
+  .history-item-title {
+    @apply text-white;
+    background-color: #D6B009;
+  }
+
+  .history-item-price {
+    @apply text-sm;
+    color: #D6B009;
   }
 }
