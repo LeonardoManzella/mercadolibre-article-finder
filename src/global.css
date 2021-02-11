@@ -42,3 +42,6 @@ input, input:before, input:after, textarea {
 body *:focus {
     outline: none;
 }
+
+/* Import augmented-ui lib with URL because it brokes the build otherwise */
+@import 'https://unpkg.com/augmented-ui@1.1.2/augmented.css';
