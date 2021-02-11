@@ -25,20 +25,20 @@ body * {
     tap-highlight-color: transparent;
     touch-callout: none;
   }
-  /* This fix iPhone and sometimes Chrome problems writing in Inputs */
-  /* If this fix dasdadoesn't work, see https://stackoverflow.com/questions/32851413/input-field-ios-safari-bug-cant-type-in-any-text */
-  input, input:before, input:after, textarea {
-    -webkit-user-select: initial !important;
-    -khtml-user-select: initial !important;
-    -moz-user-select: initial !important;
-    -ms-user-select: initial !important;
-    user-select: initial !important;
-    -webkit-touch-callout: initial;
-    touch-callout: initial;
-    -webkit-tap-highlight-color: initial;
-    tap-highlight-color: initial;
-  }
- 
-  body *:focus {
-      outline: none;
-  }
+/* This fix iPhone and sometimes Chrome problems writing in Inputs */
+/* If this fix dasdadoesn't work, see https://stackoverflow.com/questions/32851413/input-field-ios-safari-bug-cant-type-in-any-text */
+input, input:before, input:after, textarea {
+  -webkit-user-select: initial !important;
+  -khtml-user-select: initial !important;
+  -moz-user-select: initial !important;
+  -ms-user-select: initial !important;
+  user-select: initial !important;
+  -webkit-touch-callout: initial;
+  touch-callout: initial;
+  -webkit-tap-highlight-color: initial;
+  tap-highlight-color: initial;
+}
+
+body *:focus {
+    outline: none;
+}

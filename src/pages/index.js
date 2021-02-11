@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import ContentLoader from 'react-content-loader'
 import ArticleDetail from "../components/ArticleDetail";
+import ErrorMessage from "../components/ErrorMessage";
 
 import MenuBar from "../components/MenuBar"
 import { getArticleData } from "../services/mercadoLibreService";
 
 const App = () => {
   const [articleData, setArticleData] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   /** COLOR PALETTE
   * Background color: #ecebeb
@@ -20,7 +22,7 @@ const App = () => {
 
   /* TODO 
     - Design icon with round circle and big 'B'
-    - Error check search or not found if less than 10 articles
+    - Historial de busquedas
 
     - Share button in price section
     - Add history feature
@@ -28,7 +30,7 @@ const App = () => {
   */
 
   const executeSearch = (term) => {
-    getArticleData(term, setArticleData);
+    getArticleData(term, setArticleData, setErrorMessage);
   }
 
   const Loader = () => (
@@ -61,7 +63,9 @@ const App = () => {
   return (
     <>
     <MenuBar executeSearch={executeSearch} setArticle={setArticleData} />
-      { articleData
+      { errorMessage
+        ? <ErrorMessage message={errorMessage} />
+        : articleData
         ? <ArticleDetail articleData={articleData} />
         : <Loader />
       }

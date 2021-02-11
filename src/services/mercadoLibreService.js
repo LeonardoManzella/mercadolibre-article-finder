@@ -1,4 +1,6 @@
+import { HISTORY } from "../constants/storage";
 import { fetchTextData } from "../utils/internetUtils";
+import { getLocalStorageUtils } from "../utils/localStorageUtils";
 
 const PROXY_GENERAL = "https://dev-leo-cors-anywhere.herokuapp.com/";
 // const PROXY_WORKER = "https://proxy-worker.leonardo-manzella.workers.dev/corsproxy/?apiurl=";
@@ -8,12 +10,27 @@ const MERCADOLIBRE_PAGE_MULTI = (term, page) => `https://electronica.mercadolibr
 
 export const getArticleData = async (
     termToFind,
-    setArticleData
+    setArticleData,
+    setErrorMessage,
 ) => {
-    setArticleData(null); //Sets loading screen
-
+    if(!termToFind) {
+        setErrorMessage("Por favor escriba un termino de busqueda");
+        return;
+    }
+    //Set loading screen
+    setErrorMessage(null);
+    setArticleData(null); 
     let searchTerm = termToFind.trim();
     searchTerm = termToFind.replace(/ /gm, '-');
+
+    const [gethistory, setHistory, _] = getLocalStorageUtils(HISTORY, []);
+    const history = gethistory();
+    const articleInCache = history.find( article => article.searchTerm === searchTerm);
+    if(articleInCache) {
+        setArticleData(articleInCache);
+        return;
+    }
+    
     const searchURLs = [
         MERCADOLIBRE_PAGE_BASE(searchTerm),
         MERCADOLIBRE_PAGE_MULTI(searchTerm, 2),
@@ -47,6 +64,10 @@ export const getArticleData = async (
 
     articlesFound = articlesFound.filter( article => article.price);
     articlesFound = eliminateUnrelatedItems(articlesFound);
+    if(articlesFound.length <= 10) {
+        setErrorMessage("No hay articulos de este tipo en venta en MercadoLibre");
+        return;
+    }
     articlesFound = articlesFound.sort(articleComparator);
     // console.log("articlesFound: ", articlesFound);
   
@@ -59,13 +80,17 @@ export const getArticleData = async (
     selectedArticles = selectedArticles.slice(0, Math.min(12, selectedArticles.length));
     const searchTitle = termToFind[0].toUpperCase() + termToFind.slice(1)
 
-    setArticleData({
+    const articleToShow = {
+        searchTerm: searchTerm,
         searchTitle: searchTitle,
         minAverage: minAverage,
         totalAverage: totalAverage,
         maxAverage: maxAverage,
         selectedArticles: selectedArticles,
-    });
+    };
+    setArticleData(articleToShow);
+    history.push(articleToShow);
+    setHistory(history);
 };
 
 const parseMLdata = async (url) => {
