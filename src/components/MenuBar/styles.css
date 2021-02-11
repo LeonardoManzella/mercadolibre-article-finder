@@ -1,5 +1,5 @@
 .burger-menu-styles {
-  background-color: #676565;
+  background-color: #ecebeb;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -28,7 +28,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: yellow;
+  background: black;
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -49,7 +49,7 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background-color: #ecebeb;
   padding: 2rem 0.5rem 0;
   font-size: 1.15em;
   display: flex;
@@ -79,7 +79,7 @@
 .bm-item {
   display: inline-block;
   margin: 0.4rem 0;
-  color: white;
+  color: black;
 }
 
 .menu-item:focus {
@@ -108,7 +108,7 @@
 
   .search-button {
     @apply my-1;
-    background-color: yellow;
+    background-color: #EDDB15;
     padding-left: 2.5rem;
     padding-right: 0.5rem;
     margin-left: -1.5rem;

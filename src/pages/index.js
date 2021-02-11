@@ -8,10 +8,21 @@ import { getArticleData } from "../services/mercadoLibreService";
 const App = () => {
   const [articleData, setArticleData] = useState(null);
 
+  /** COLOR PALETTE
+  * Background color: #ecebeb
+  * Base yellow and normal details: #EDDB15
+  * Normal text color: black
+  * Extra Background orange: #D6B009
+  * Normal highlight or sub-details: #F7B30A
+  * One of the upper 2 to use with transparency
+  * Special details or smaller highlight radioative green: #96F70A
+  */
+
   /* TODO 
-    - Focus on design colors, start with a different base color than the rest of apps, maybe yellow?
+    - Design icon with round circle and big 'B'
     - Error check search or not found if less than 10 articles
 
+    - Share button in price section
     - Add history feature
     - Pensar si mostrar las cosas mas vendidas/buscadas ahora en mercado libre en la home debajo de la barra de busqueda cuando inicia la APP (QUE aporta? visibilidad de aumento de precios? No me engañan pichanga?), seria una pantalla separada de las busquedas en si, autocontenida en si misma, que se muestra hasta la primera busqueda
   */

@@ -15,7 +15,7 @@ const ArticleDetail = ({articleData}) => {
 
   return (
     <div className="article-detail-page">
-      <div className="article-detail-container">
+      <div className="article-detail-container" augmented-ui="tr-clip tl-clip exe">
         <div className="article-detail-title">{articleData.searchTitle}</div>
         <div className="article-detail-small-average">Minimo: $ {articleData.minAverage}</div>
         <div className="article-detail-big-average">Promedio: $ {articleData.totalAverage}</div>

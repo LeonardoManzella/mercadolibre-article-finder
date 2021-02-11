@@ -55,9 +55,8 @@ export const getArticleData = async (
     const minAverage = calcAverage(articlesPrice.slice(0,articlesPrice.length* 1/5))
     const maxAverage = calcAverage(articlesPrice.slice(articlesPrice.length * 4/5))
     let selectedArticles = articlesFound.filter( article => Math.abs(article.price.amount - totalAverage) <= (totalAverage/5) );
-    // TODO take out duplicated articles
     selectedArticles = deduplicateArticles(selectedArticles);
-    selectedArticles = selectedArticles.slice(0, Math.min(9, selectedArticles.length));
+    selectedArticles = selectedArticles.slice(0, Math.min(12, selectedArticles.length));
     const searchTitle = termToFind[0].toUpperCase() + termToFind.slice(1)
 
     setArticleData({
@@ -106,7 +105,7 @@ const calcAverage = (articlesFound) => {
 
 const deduplicateArticles = (articles) => {
     const compareDuplicates = (accumulator, currentArticle) => {
-        if(!accumulator.length || (accumulator[accumulator.length-1].id !== currentArticle.id) ) {
+        if(!accumulator.length || ((accumulator[accumulator.length-1].id !== currentArticle.id) && (accumulator[accumulator.length-1].pictures.stack.retina !== currentArticle.pictures.stack.retina)) ) {
             return [...accumulator, currentArticle]
         } else {
             return accumulator

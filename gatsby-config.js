@@ -77,8 +77,8 @@ module.exports = {
         start_url: `/`,
         // TODO remember to change this stuff
         icon: `src/images/icon.png`,
-        background_color: `#FFF`,
-        theme_color: `#FAE042`,
+        background_color: `#ecebeb`,
+        theme_color: `#ecebeb`,
         display: `standalone`,
       },
     },

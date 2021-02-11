@@ -1,12 +1,13 @@
 
 @layer components {
     .article-detail-page{
-        background-color: grey;
+        background-color: white;
     }
     
     .article-detail-container {
-        @apply px-4 mb-3 flex-col justify-center items-start;
+        @apply px-3 mx-3 mt-1 mb-3 flex-col justify-center items-start;
         display: flex;
+        --aug-inset-bg: #EDDB15;
     }
 
     .article-detail-title {
@@ -29,12 +30,12 @@
         width: 45vw;
         max-width: 15rem;
         --aug-border: 0.1rem;
-        --aug-border-bg: yellow;
+        --aug-border-bg: #EDDB15;
     }
 
     .article-detail-example-title{
         @apply px-1 text-xs;
-        background-color: yellow;
+        background-color: #EDDB15;
         color: black;
         text-align: center;
     }
