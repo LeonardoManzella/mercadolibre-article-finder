@@ -21,7 +21,6 @@ const App = () => {
   */
 
   /* TODO 
-    - Design icon with round circle and big 'B'
     - Historial de busquedas
 
     - Share button in price section
