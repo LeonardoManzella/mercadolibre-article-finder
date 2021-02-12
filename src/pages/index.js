@@ -50,7 +50,7 @@ const App = () => {
         width={"140%"}
         viewBox="0 0 300 280"
         backgroundColor="#f3f3f3"
-        foregroundColor="#ecebeb"
+        foregroundColor="#c7c7c7"
       >
         <rect x="11" y="14" rx="0" ry="0" width="190" height="11" /> 
         <rect x="12" y="31" rx="0" ry="0" width="18" height="58" /> 

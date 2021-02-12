@@ -5,8 +5,8 @@ import { getLocalStorageUtils } from "../utils/localStorageUtils";
 const PROXY_GENERAL = "https://dev-leo-cors-anywhere.herokuapp.com/";
 // const PROXY_WORKER = "https://proxy-worker.leonardo-manzella.workers.dev/corsproxy/?apiurl=";
 
-const MERCADOLIBRE_PAGE_BASE = (term) => `https://electronica.mercadolibre.com.ar/nuevo/capital-federal/${term}_OrderId_PRICE`;
-const MERCADOLIBRE_PAGE_MULTI = (term, page) => `https://electronica.mercadolibre.com.ar/nuevo/capital-federal/${term}_Desde_${1+50*(page-1)}_OrderId_PRICE`;
+const MERCADOLIBRE_PAGE_BASE = (term) => `https://listado.mercadolibre.com.ar/nuevo/capital-federal/${term}_OrderId_PRICE`;
+const MERCADOLIBRE_PAGE_MULTI = (term, page) => `https://listado.mercadolibre.com.ar/nuevo/capital-federal/${term}_Desde_${1+50*(page-1)}_OrderId_PRICE`;
 
 export const getArticleData = async (
     termToFind,
